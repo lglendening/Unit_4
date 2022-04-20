@@ -93,3 +93,113 @@ Second to last element: my_list[-2]
 
 Third to last element: my_list[-3]
 '''
+#################################################
+#################################################
+shopping_lists = [###############################
+    ['toothpaste', 'q-tips', 'milk'],############
+    ['milk', 'candy', 'apples'],#################
+    ['planner', 'pencils', 'q-tips'],############
+    ]############################################
+#################################################
+#################################################
+
+
+
+
+
+
+def update_item(list_number , item_number , new_item):
+    shopping_lists[list_number][item_number] = new_item
+
+def view_item(list_number , item_number):
+    print(shopping_lists[list_number][item_number])
+
+def view_list(list):
+    count = 0
+    list_string = ''
+    for item in shopping_lists[list]:
+        if count < len(shopping_lists[list]) -1 :
+            list_string += item + ", "
+        else:
+            list_string += item
+
+
+    count += 1        
+    print(list_string)
+
+def all_in_one():
+    combined_list = []
+
+
+    for list in shopping_lists:
+        for item in list:
+            combined_list.append(item)
+    print(combined_list)
+
+def count_q_tips(list_choice):
+    how_many_q_tips_there_are = 0
+    for item in shopping_lists[list_choice]:
+        if item == "q-tips":
+            how_many_q_tips_there_are += 1
+    
+    print (f"how many q tips there are: {how_many_q_tips_there_are}")
+
+def drink_more_milk():
+    
+    for i in range(len(shopping_lists)):
+        if 'milk' not in shopping_lists[i]:
+            shopping_lists[i].append('milk')
+        
+    # for list in shopping_lists:
+    #     if 'milk' not in list:
+            
+def if_you_give_a_moose_a_cookie():
+    for i in range(len(shopping_lists)):
+        for j in range(len(list)):
+            if shopping_lists[i][i] == 'milk':
+                shopping_lists[i][i] = 'milk and cookies'
+
+
+while True:
+
+    user_choice = input("Choose 1 = update item, 2 = view item, or 3 = view list, 4 = combine all list,"
+    " 5 = to count q-tips, drink more milk = 6,  q = quit: ")
+
+
+    if user_choice == "1":
+        list_choice = int(input("Which list number contains the item you want to change? ")) -1
+        item_choice = int(input("Which item number would you like to change? ")) -1
+        new_item = input("What item would you like to add: ")
+
+        update_item(list_choice , item_choice , new_item)
+
+    elif user_choice == "2":
+        list_choice = int(input("Which list number contains the item you want to view? ")) -1
+        item_choice = int(input("Which item number would you like to view? ")) -1
+    
+        view_item(list_choice , item_choice)
+
+    elif user_choice == "3":
+        list_choice = int(input("Which list number would you like to view? ")) -1
+
+        view_list(list_choice)
+
+    elif user_choice == "4":
+        all_in_one()
+
+    elif user_choice == "5":
+        list_choice = int(input("Which list number would you like to count q-tips in? ")) -1
+
+        count_q_tips(list_choice)
+
+    elif user_choice == "6":
+        drink_more_milk()
+
+    elif user_choice == "q":
+        break
+
+    '''
+for lists in shopping_lists:
+    for item in lists:
+        print(item)
+'''
